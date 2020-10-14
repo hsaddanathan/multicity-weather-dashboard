@@ -5,19 +5,14 @@ $(document).ready(function(){
     console.log(moment().format("L"))  
     // var queryUrl= "https://api.openweathermap.org/data/2.5/weather?q=Atlanta,USA&appid=" + apiKey;
 
-// var storedCites = JSON.parse(localStorage.getItem(""))
-// var cityName = "" || cityHistory[0];
-
-// $.ajax({
-//     url: queryUrl,
-//     method: "GET"
-// }).then(function(response){
-//     console.log(response)
-// })
+var storedCities = JSON.parse(localStorage.getItem("history")) || [];
+var cityName = "" || storedCities[0];
 
 
 
-})
+
+
+
 
 //Get Weather Data
 function currentWeather(cityName){
@@ -48,6 +43,15 @@ function getUVIndex(lat,lon){
     })
 }
 
+function cityButtons(cityName){
+    var cityHistory = [];
+    cityHistory.push(cityName);
+    storedCities.unshift(cityName);
+    localStorage.setItem("history",JSON.stringify(storedCities));
+
+
+}
+
 
 
 
@@ -61,4 +65,7 @@ $("#submit-city").on("click",function(event){
     cityName = $("#city-input").val();
     console.log(cityName)
     currentWeather(cityName);
+    cityButtons(cityName);
+})
+
 })
