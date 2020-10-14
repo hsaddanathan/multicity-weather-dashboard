@@ -16,6 +16,12 @@
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -26,11 +32,47 @@
       </p>
     <![endif]-->
     <nav class="navbar navbar-dark bg-dark justify-content-center">
-        <h1>Weather Dashboard</h1>
-      </nav>
-    
-    <div class="container">
-        
+      <h1>Weather Dashboard</h1>
+    </nav>
+
+    <main class="container-fluid">
+      <section class="row">
+        <aside class="col-sm-4" id="search-city">
+          <form class="form-group">
+            <h4>Search for a City:</h4>
+            <input type="text" placeholder="City" id="city-input" />
+            <button
+              type="button submit"
+              class="btn btn-primary"
+              id="submit-city"
+            >
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+
+          <aside class="row">
+            <aside id="saved-cities">
+              <h4></h4>
+            </aside>
+          </aside>
+        </aside>
+        <section class="col-sm-8" id="weather">
+            <section class="row">
+                <section class="col-sm-12" id="current-weather">
+                <h3 id="city-name"></h3>
+                <p id="temperature">Temperature: </p>
+                <p id="humidity">Humidity: </p>
+                <p id="wind-speed">Wind Speed: </p>
+                <p id="uv-index">UV Index: </p>
+                </section>
+            </section>
+            <section class= "row">
+                <section class="col-sm-12" id="five-day">
+                    <h3>Five Day Forecast</h3>
+                </section>
+            </section>
+        </section>
+    </main>
     </div>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
