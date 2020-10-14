@@ -5,4 +5,12 @@
 
 #search-city {
     background-color: rgb(248,249, 250);
+    padding-bottom: 100%;
+}
+
+#current-weather {
+    border: rgb(231,231, 231);
+    border-width: 2px;
+    border-style: solid;
+    margin: 10px;
 }
