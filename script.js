@@ -1,17 +1,11 @@
-console.log("Hello World");
 var apiKey = "cd1dd9c436f58d596d28363e12e23816"
 $(document).ready(function(){
+    //Search Value
     var searchCity = $("#city-input")
-    console.log(moment().format("L"))  
-    // var queryUrl= "https://api.openweathermap.org/data/2.5/weather?q=Atlanta,USA&appid=" + apiKey;
 
+    //Sets variable from local storage
 var storedCities = JSON.parse(localStorage.getItem("history")) || [];
 var cityName = "" || storedCities[0];
-
-
-
-
-
 
 
 //Get Weather Data
@@ -31,7 +25,7 @@ function currentWeather(cityName){
     })
     searchCity.value="";
 }
-
+//Get UV Index
 function getUVIndex(lat,lon){
     var queryUrl= "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon  + "&appid=" + apiKey + "&units=imperial";
     $.ajax({
@@ -44,7 +38,7 @@ function getUVIndex(lat,lon){
         $("#uv-index").text("UV Index: " + uV);
     })
 }
-
+//Generate City buttons by saving to local storage
 function cityButtons(cityName){
     var cityHistory = [];
     cityHistory.push(cityName);
@@ -60,13 +54,14 @@ function cityButtons(cityName){
 
 
 }
+//Five Day Forecast
 function fiveDayForecast(response){
     $("#five-day-display").empty();
     for(var i=1; i<6;i++){
         var newDay = response.daily[i];
         var newDate = moment().add(i,'days').format("L");
 
-        var newCard = $('<div class="card text-white bg-primary ml-1" style="max-width: 18rem"></div>'
+        var newCard = $('<div class="card text-white bg-primary ml-1" style="max-width: 18rem; display: inline-block"></div>'
         );
         newCard.append("<div class='card-header'>"+newDate+"</div>");
         newCard.append($('<img class="images" src ="https://openweathermap.org/img/wn/' + newDay.weather[0].icon + '.png"/>'));
@@ -75,6 +70,7 @@ function fiveDayForecast(response){
     $("#five-day-display").append(newCard);
     }
 }
+//What happens upon reload
 function pageOnLoad(){
     for(var i=0; i<storedCities.length; i++){
         var newDiv = $("<div>");
@@ -91,6 +87,7 @@ pageOnLoad();
 
 
 //Event Listeners
+    //Search button
 $("#submit-city").on("click",function(event){
     event.preventDefault();
     cityName = searchCity.val();
@@ -102,14 +99,8 @@ $("#submit-city").on("click",function(event){
             cityButtons(cityName);
             searchCity.empty();
         }
-    
-        
-
-    
-    console.log(cityName)
-    
 })
-
+    //City Button
 $("#saved-cities").on("click", ".btn",function(){
     currentWeather(this.textContent);
 })
