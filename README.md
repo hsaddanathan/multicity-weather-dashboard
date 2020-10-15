@@ -35,10 +35,10 @@ Image shows forecast for Miami
 ## Links
 
 work-day-scheduler repository link:
-    https://github.com/hsaddanathan/work-day-scheduler.git
+    https://github.com/hsaddanathan/multicity-weather-dashboard.git
 
 Github Deployed Site URL:
-    https://hsaddanathan.github.io/work-day-scheduler/
+    https://hsaddanathan.github.io/multicity-weather-dashboard/
 
 ## Contributors 
 [@hsaddanathan](https://github.com/hsaddanathan)
