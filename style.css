@@ -3,6 +3,24 @@
     text-align: center;
 }
 
+.city-button{
+    background: white;
+    border-width: 2px;
+    border-style: solid;
+    padding-left: 20px;
+    padding-right: 20px;
+    font: black;
+    width: 300%;
+    text-align: left;
+    
+}
+.images{
+    padding: 20px;
+    
+}
+.card{
+    margin: 15px;
+}
 #search-city {
     background-color: rgb(248,249, 250);
     padding-bottom: 100%;
@@ -13,4 +31,8 @@
     border-width: 2px;
     border-style: solid;
     margin: 10px;
+}
+
+#five-day-display{
+    display: inline-block;
 }
